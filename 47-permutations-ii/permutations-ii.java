@@ -1,5 +1,5 @@
 class Solution {
-    public void solve(int[] nums,int start,int end,List<List<Integer>> res, Set<List<Integer>> seen)
+    public void solve(int[] nums,int start,int end,List<List<Integer>> res)
     {
         if(start==end)
         {
@@ -9,9 +9,8 @@ class Solution {
             {
                 list.add(nums[i]);
             }
-            if (!seen.contains(list)) {
-                res.add(new ArrayList<>(list));
-                seen.add(list);
+            if (!res.contains(list)) {
+                res.add(list);
             }
             return;
         }
@@ -22,7 +21,7 @@ class Solution {
                int temp = nums[i]; 
                nums[i]  = nums[start]; 
                nums[start] = temp; 
-               solve(nums,start+1,end,res,seen); 
+               solve(nums,start+1,end,res); 
                temp = nums[i]; 
                nums[i]  = nums[start]; 
                nums[start] = temp;
@@ -30,9 +29,8 @@ class Solution {
         }
     }
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>(); 
-        Set<List<Integer>> seen = new HashSet<>();
-        solve(nums,0,nums.length-1,res,seen);  
+        List<List<Integer>> res = new ArrayList<>();
+        solve(nums,0,nums.length-1,res);  
         return res;
     }
 }
