@@ -35,7 +35,7 @@ class Solution
             {//col =0; 1<=4 ;col=2 
                 if(board[row][col]==word.charAt(0))
                 {
-                    if(solve(board,n,m,row,col,word,0)==true)
+                    if(solve(board,n,m,row,col,word,0))
                     {
                         return true;
                     }
