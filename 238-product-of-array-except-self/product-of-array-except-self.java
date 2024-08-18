@@ -25,19 +25,6 @@ class Solution {
             
             arr[i] = total/nums[i];
         } 
-       /* for(int i=0;i<arr.length;i++){
-             int total = 0;
-             for(int j = 0;j<arr.length;j++){
-                if(j==i){
-                   continue;
-                }
-                else{
-                    total= total*nums[j];
-                }
-             }
-             arr[i] = total;
-        }
-        */
         int c=0;
         for(int i=0;i<nums.length;i++){
             if(nums[i]==0)
